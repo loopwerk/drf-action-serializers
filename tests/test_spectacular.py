@@ -4,7 +4,7 @@ drf_spectacular = pytest.importorskip("drf_spectacular")
 
 from rest_framework import serializers
 
-from drf_action_serializer.spectacular import ActionSerializerAutoSchema
+from drf_action_serializers.spectacular import ActionSerializerAutoSchema
 
 
 class ReadSerializer(serializers.Serializer):

@@ -1,5 +1,5 @@
 [project]
-name = "drf-action-serializer"
+name = "drf-action-serializers"
 version = "0.1.0"
 description = "Easily specify a serializer for each action and method combination"
 authors = [
@@ -25,9 +25,9 @@ dev = [
 spectacular = ["drf-spectacular>=0.26"]
 
 [project.urls]
-Homepage = "https://github.com/loopwerk/drf-action-serializer"
-Repository = "https://github.com/loopwerk/drf-action-serializer.git"
-Issues = "https://github.com/loopwerk/drf-action-serializer/issues"
+Homepage = "https://github.com/loopwerk/drf-action-serializers"
+Repository = "https://github.com/loopwerk/drf-action-serializers.git"
+Issues = "https://github.com/loopwerk/drf-action-serializers/issues"
 
 [build-system]
 requires = ["hatchling"]

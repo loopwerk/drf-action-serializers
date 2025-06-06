@@ -2,7 +2,7 @@ import pytest
 from rest_framework import serializers, status
 from rest_framework.test import APIRequestFactory
 
-from drf_action_serializer.viewsets import ActionSerializerModelViewSet
+from drf_action_serializers.viewsets import ActionSerializerModelViewSet
 from tests.models import Thing
 
 

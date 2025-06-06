@@ -1,4 +1,4 @@
-# drf-action-serializer
+# drf-action-serializers
 
 **An easy way to use different serializers for different actions and request methods in Django REST Framework**
 
@@ -21,9 +21,9 @@ class PostViewSet(viewsets.ModelViewSet):
         return Post.objects.all()
 ```
 
-The `PostSerializer` class is used for everything: the list of posts, retrieving a single post, the payload when creating or updating a post, and the response when creating or updating a post. 
+The `PostSerializer` class is used for everything: the list of posts, retrieving a single post, the payload when creating or updating a post, and the response when creating or updating a post.
 
-I find that this is often not what I want; for example I often want a simple version of the model to be returned in the list endpoint (`/posts/`), while the full model is returned in the retrieve endpoint (`/posts/{post_id}/`). And I also often want that the *input* serializer is different from the *output* serializer, when creating or updating something.
+I find that this is often not what I want; for example I often want a simple version of the model to be returned in the list endpoint (`/posts/`), while the full model is returned in the retrieve endpoint (`/posts/{post_id}/`). And I also often want that the _input_ serializer is different from the _output_ serializer, when creating or updating something.
 
 And when you add extra router actions to your ViewSets and you want to use different serializers for them as well? Things are getting complicated and messy real fast.
 
@@ -56,14 +56,14 @@ Now you’re using different input and output serializers as well!
 
 Install the package:
 
-```
-uv add drf-action-serializer
+```bash
+$ uv add drf-action-serializers
 ```
 
 And then use its ViewSets like `ActionSerializerModelViewSet`, `ActionSerializerReadOnlyModelViewSet`, and `ActionSerializerGenericViewSet`, instead of Django REST Framework’s built-in ViewSets.
 
 ```python
-from drf_action_serializer import viewsets
+from drf_action_serializers import viewsets
 
 class PostViewSet(ActionSerializerModelViewSet):
     retrieve_serializer_class = PostDetailSerializer
@@ -80,8 +80,8 @@ Note: this package is built on top of Django Rest Framework, so it assumes that 
 
 If you use drf-spectacular, then install the following optional package:
 
-```
-uv add drf-action-serializer[spectacular]
+```bash
+$ uv add drf-action-serializers[spectacular]
 ```
 
 Then add the following to `settings.py` and it’s automatically used:

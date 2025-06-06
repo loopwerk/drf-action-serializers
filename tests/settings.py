@@ -3,7 +3,7 @@ INSTALLED_APPS = [
     "django.contrib.contenttypes",
     "rest_framework",
     "drf_spectacular",
-    "drf_action_serializer",
+    "drf_action_serializers",
     "tests",
 ]
 
