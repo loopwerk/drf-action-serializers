@@ -91,3 +91,7 @@ REST_FRAMEWORK = {
     "DEFAULT_SCHEMA_CLASS": "drf_action_serializer.spectacular.ActionSerializerAutoSchema",
 }
 ```
+
+## Credits
+
+Many thanks to [rest-framework-actions](https://github.com/AlexisMunera98/rest-framework-actions) and [drf-rw-serializers](https://github.com/vintasoftware/drf-rw-serializers) for the inpiration.
