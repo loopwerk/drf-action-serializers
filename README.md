@@ -108,4 +108,4 @@ This approach helps me avoid burnout and keep the project sustainable. Thanks fo
 
 ## Credits
 
-Many thanks to [rest-framework-actions](https://github.com/AlexisMunera98/rest-framework-actions) and [drf-rw-serializers](https://github.com/vintasoftware/drf-rw-serializers) for the inpiration.
+Many thanks to [rest-framework-actions](https://github.com/AlexisMunera98/rest-framework-actions) and [drf-rw-serializers](https://github.com/vintasoftware/drf-rw-serializers) for the inspiration.
