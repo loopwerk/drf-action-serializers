@@ -1,6 +1,6 @@
 [project]
 name = "drf-action-serializers"
-version = "0.2.0"
+version = "0.2.1"
 description = "Easily specify a serializer for each action and method combination"
 authors = [
     {name = "Kevin Renskers", email = "kevin@loopwerk.io"},
