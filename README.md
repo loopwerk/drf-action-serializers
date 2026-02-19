@@ -76,6 +76,36 @@ class PostViewSet(ActionSerializerModelViewSet):
 
 Note: this package is built on top of Django Rest Framework, so it assumes that Django Rest Framework is installed and added to your project [as documented](https://www.django-rest-framework.org/#installation).
 
+## How it works
+
+When your view needs a serializer, drf-action-serializers looks at two things:
+
+1. **The action** — the ViewSet action being performed, like `list`, `retrieve`, `create`, `update`, `partial_update`, or any custom action you've added via `@action`.
+2. **The method** — either `read` (for safe HTTP methods: GET, HEAD, OPTIONS) or `write` (for unsafe HTTP methods: POST, PUT, PATCH, DELETE).
+
+It then checks for a matching serializer property on your ViewSet in the following order, returning the first one it finds:
+
+| Priority | Property                             | Example                         |
+| -------- | ------------------------------------ | ------------------------------- |
+| 1        | `{action}_{method}_serializer_class` | `create_write_serializer_class` |
+| 2        | `{method}_serializer_class`          | `write_serializer_class`        |
+| 3        | `{action}_read_serializer_class`     | `create_read_serializer_class`  |
+| 4        | `{action}_serializer_class`          | `create_serializer_class`       |
+| 5        | `read_serializer_class`              |                                 |
+| 6        | `serializer_class`                   |                                 |
+
+So for a `POST /posts/` request (action=`create`, method=`write`), the lookup order is: `create_write_serializer_class` → `write_serializer_class` → `create_read_serializer_class` → `create_serializer_class` → `read_serializer_class` → `serializer_class`.
+
+This means you can be as specific or as general as you want. Setting `write_serializer_class` applies to all write operations, while `create_write_serializer_class` only applies to create. The most specific match always wins.
+
+### partial_update fallback
+
+The `partial_update` action (PATCH requests) automatically falls back to `update` properties if no `partial_update`-specific property is found. So if you define `update_write_serializer_class`, it will also be used for PATCH requests — no need to define both.
+
+### Custom actions
+
+This works with custom `@action` decorators too. If you have an action named `publish`, you can define `publish_serializer_class`, `publish_read_serializer_class`, `publish_write_serializer_class`, and so on.
+
 ## drf-spectacular support
 
 If you use drf-spectacular, then install the following optional package:
